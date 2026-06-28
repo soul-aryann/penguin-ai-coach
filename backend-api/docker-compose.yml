@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: english-coach-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: english_coach
+      POSTGRES_USER: coach_admin
+      POSTGRES_PASSWORD: coach_secure_pass
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

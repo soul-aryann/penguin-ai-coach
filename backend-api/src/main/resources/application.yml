@@ -1,0 +1,38 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  datasource:
+    url: jdbc:postgresql://localhost:5432/english_coach
+    username: coach_admin
+    password: coach_secure_pass
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  sql:
+    init:
+      mode: always
+  threads:
+    virtual:
+      enabled: true
+
+app:
+  jwt:
+    secret: 9a4f2c8d3b7a5e6f1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b
+    expiration-ms: 86400000
+
+gemini:
+  api:
+    key: ${GEMINI_API_KEY:PLACEHOLDER_KEY}
+    url: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent
+
+logging:
+  level:
+    org.springframework.security: TRACE
